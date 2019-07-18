@@ -15,4 +15,10 @@ query test {
         firstName
         lastName
     }
+    colleges {
+        id
+        name
+        location
+        rating
+    }
 }

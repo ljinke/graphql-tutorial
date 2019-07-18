@@ -24,7 +24,8 @@ const Query = {
     }
 
     return students;
-  }
+  },
+  colleges: () => db.colleges.list()
 };
 
 const Student = {
