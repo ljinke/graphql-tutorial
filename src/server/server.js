@@ -1,13 +1,16 @@
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const express = require("express");
+const path = require("path");
 const db = require("./db");
 
 const port = process.env.PORT || 9000;
 const app = express();
 
 const fs = require("fs");
-const typeDefs = fs.readFileSync("./schema.graphql", { encoding: "utf-8" });
+const typeDefs = fs.readFileSync(path.join(__dirname, "schema.graphql"), {
+  encoding: "utf-8"
+});
 const resolvers = require("./resolvers");
 
 const { makeExecutableSchema } = require("graphql-tools");
