@@ -1,4 +1,5 @@
 const db = require("./db");
+const loaders = require("./dataLoaders");
 
 const Query = {
   test: () => "Test Success, GraphQL server is up & running !!",
@@ -31,7 +32,8 @@ const Student = {
     return root.firstName + " " + root.lastName;
   },
   college: root => {
-    return db.colleges.get(root.collegeId);
+    // return db.colleges.get(root.collegeId);
+    return loaders.CollegeLoader.load(root.collegeId);
   }
 };
 
